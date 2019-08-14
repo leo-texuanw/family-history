@@ -65,7 +65,7 @@ FLAGS = flags.FLAGS
 
 # Required parameters
 flags.DEFINE_string(
-    "data_dir", '../objects/',
+    "data_dir", '../Data/',
     "The input data dir. Should contain the .tsv files (or other data files) "
     "for the task.")
 
@@ -109,7 +109,7 @@ flags.DEFINE_bool("do_train", True, "Whether to run training.")
 flags.DEFINE_bool("do_eval", True, "Whether to run eval on the dev set.")
 
 flags.DEFINE_bool(
-    "do_predict", False,
+    "do_predict", True,
     "Whether to run the model in inference mode on the test set.")
 
 flags.DEFINE_integer("train_batch_size", 64, "Total batch size for training.")
@@ -256,11 +256,11 @@ class ReClf(DataProcessor):
   def get_test_examples(self, data_dir):
     """See base class."""
     return self._create_examples(
-        self._read_tsv(os.path.join(data_dir, "re_test_data.txt")), "test")
+        self._read_tsv(os.path.join(data_dir, "subtask2_test_data.txt")), "test")
 
   def get_labels(self):
     """See base class."""
-    return ["OTHERS", "FM_OBS", "FM_OBS_N"]
+    return ["OTHERS", "FM_OBS", "FM_OBS_N", "FM_LS"]
 
   def _create_examples(self, lines, set_type):
     """Creates examples for the training and dev sets."""
