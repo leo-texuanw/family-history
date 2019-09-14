@@ -91,6 +91,8 @@ flags.DEFINE_string(
 flags.DEFINE_string(
     "init_checkpoint",
     './bert/pre_trained_models/uncased_L-12_H-768_A-12/bert_model.ckpt',
+    # './biobert_v1.1_pubmed/model.ckpt-1000000',
+    #'./clinical_bert/biobert_pretrain_output_all_notes_150000/model.ckpt-150000',
     "Initial checkpoint (usually from a pre-trained BERT model).")
 
 flags.DEFINE_bool(
